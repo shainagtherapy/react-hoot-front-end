@@ -7,6 +7,7 @@ import SignInForm from './components/SignInForm/SignInForm';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import HootList from './components/HootList/HootList';
+import HootDetails from './components/HootDetails/HootDetails';
 import * as hootService from './services/hootService';
 
 import { UserContext } from './contexts/UserContext';
@@ -34,6 +35,7 @@ const App = () => {
           <>
             {/* Protected routes (available only to signed-in users) */}
             <Route path='/hoots' element={<HootList hoots={hoots} />} />
+            <Route path='/hoots/:hootId' element={ <HootDetails /> } />
           </>
         ) : (
           <>
