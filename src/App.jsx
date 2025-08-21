@@ -43,7 +43,7 @@ const App = () => {
 
 
   const handleDeleteHoot = async (hootId) => {
-   
+    const deletedHoot = await hootService.deleteHoot(hootId);
     setHoots(hoots.filter((hoot) => hoot._id !== hootId));
     navigate('/hoots');
   };

@@ -85,7 +85,7 @@ const update = async (hootId, hootFormData) => { // IMPORTANT code change from l
 }
 
 
-const deleteComment = async (commentId) => {
+const deleteComment = async (hootId, commentId) => {
     try {
         const res = await fetch(`${BASE_URL}/${hootId}/comments/${commentId}`, {
         method: 'DELETE',

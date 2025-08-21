@@ -84,7 +84,7 @@ const HootDetails = (props) => {
               {comment.author._id === user._id && (
               <>
                 <Link to={`/hoots/${hootId}/comments/${comment._id}/edit`} >Edit</Link>
-                <button onClick={() => props.handleDeleteComment(comment._id)}>Delete Comment</button>
+                <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
               </>
             )}
             </div>
