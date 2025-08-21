@@ -54,7 +54,66 @@ const createComment = async (hootId, commentFormData) => {
   }
 };
 
+const deleteHoot = async (hootId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${hootId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
+const update = async (hootId, hootFormData) => { // IMPORTANT code change from lecture! Rewritten into arrow function
+  try {
+    const res = await fetch(`${BASE_URL}/${hootId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(hootFormData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+const deleteComment = async (commentId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${hootId}/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    return res.json();
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+const updateComment = async (hootId, commentId, commentFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${hootId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(commentFormData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
 export {
@@ -62,4 +121,8 @@ export {
   show,
   create,
   createComment,
+  deleteHoot,
+  update,
+  deleteComment,
+  updateComment,
 };
